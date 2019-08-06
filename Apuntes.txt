@@ -1,0 +1,20 @@
+JavaScript:
+-Se puede acceder a todos los valores mediante la consola de google, escribiendo la palabra reservada window.
+
+-Se pueden imprimir diferentes tipos de mensaje en la consola mediante los diferentes tipos de metodos que hay; ejemplo
+conole.log();
+conole.error();
+conole.warn();
+conole.info();
+
+-el triple igual, compara valor y objeto a la misma vez (===)
+
+-IMPORTANTE: JavaScript no es asincrono, debido a que todo lo hace secuencialmente.
+
+-diferencia entre variable anonima y una variable explicita:
+*variable explicita: es aquella que se define, ejemplo: var a = "juan"; 
+*variable anonima: es aquella que no esta definida en el codigo, por ejemplo cuando un metodo recibe un parametro y se quema directamente, es decir:  
+function imprimir( nombre ){ 
+    conole.log( nombre )}
+
+imprimir("juan");
