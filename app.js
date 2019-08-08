@@ -1,4 +1,4 @@
-
+/*
 function crearPersona( nombre, apellido ){
 
     return {
@@ -83,3 +83,50 @@ persona.nombre = "Esteban";
 persona.imprimirNombre();
 persona.direccion.obtenerPais();
 persona.padre.obtenerFelicitaciones();
+
+//-------------La palabra reservada new.
+
+function Persona(nombre, apellido, ciudad){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = 22;
+    this.ciudad = ciudad;
+    this.imprimirPersona = function(){
+        imprimirNombreCompleto(this.nombre, this.apellido) + " " + imprimirEdad(this.edad);
+        
+        return "Y vive en " + this.ciudad;        
+    }
+
+    function imprimirNombreCompleto(nombre, apellido){
+        return console.log("La persona " + nombre + " " + apellido);                
+    }
+    
+    function imprimirEdad(edad){
+        return console.log("Tiene " + edad + " años de edad.");                
+    }
+}
+
+var persona1 = new Persona("Esteban", "Lopez", "Medellín");
+var persona2 = new Persona("Cecilia", "Giraldo", "Medellín");
+var persona3 = new Persona("Lazaro", "Lopez", "Envigado");
+
+console.log(persona1.imprimirPersona());
+console.log(persona2.imprimirPersona());
+console.log(persona3.imprimirPersona());*/
+
+//----------------------PROTOTIPOS JAVASCRIPT
+
+function Persona(){
+    this.nombre = "Esteban";
+    this.apellido = "Lopez";
+    this.edad = 22;
+    this.pais = "Colombia";    
+}
+
+Persona.prototype.imprimirInfo = function(){
+    console.log(this.nombre + " " + this.apellido + " (" + this.edad + ")" )
+}
+
+var juan = new Persona();
+
+console.log(juan);

@@ -18,3 +18,21 @@ function imprimir( nombre ){
     conole.log( nombre )}
 
 imprimir("juan");
+
+-Los prototipos de javascript sirven para hacer un mejor manejo de los objetos, ejemplo: si tenemos 1000 registros de la informacion de una persona como:
+function Persona(){
+    this.nombre = "Esteban";
+    this.apellido = "Lopez";
+    this.edad = 22;
+    this.pais = "Colombia";    
+}
+ 
+y deseo crear un metodo que imprima toda la informacion de la persona, creamos un prototipo para ese metodo.
+Debido a que la informacion de las personas van a ser diferentes, por lo tanto el bloque que contiene la informacion de la persona
+va estar repetidos muchas veces pero el metodo que imprime la informacion sera algo generico, por lo tanto solo estar una vez gracias
+al prototipo, asi:
+
+Persona.prototype.imprimirInfo = function(){
+    console.log(this.nombre + " " + this.apellido + " (" + this.edad + ")" )
+}
+
