@@ -112,7 +112,7 @@ var persona3 = new Persona("Lazaro", "Lopez", "Envigado");
 
 console.log(persona1.imprimirPersona());
 console.log(persona2.imprimirPersona());
-console.log(persona3.imprimirPersona());*/
+console.log(persona3.imprimirPersona());
 
 //----------------------PROTOTIPOS JAVASCRIPT
 
@@ -130,3 +130,65 @@ Persona.prototype.imprimirInfo = function(){
 var juan = new Persona();
 
 console.log(juan);
+
+//--------FUNCIONES ANONIMAS
+//1
+( function(){
+    var a = 10;
+    console.log(a);
+
+    a = function(){
+        a=20;
+        return a;
+    }();
+    console.log(a);
+})();
+//2 
+function ejecutarFuncion( fn ){
+    if(fn()===1){
+        return true;
+    }else{
+        return false;
+    }
+    return true;
+};
+
+console.log(
+    ejecutarFuncion(function(){
+        console.log("Funcion anonima");
+        return 1;
+    })
+);*/
+
+//------FUNCIONES typeof AND instanceof
+//-------------------------------------1 EJEMPLO--------------------
+function identifica( param ){
+    if( typeof param == "function" ){
+        param();
+    }else{
+        console.log("No es una funcion anonima");
+    }    
+}
+
+identifica(function(){
+    console.log("Hola");
+});
+
+//--------------------------------------2 EJEMPLO.-----------------
+function identifica( param ){
+    if(param instanceof Persona){
+        console.log( param instanceof Persona);  //retorna un boleano
+        //Con el instanceof es como si fuera un === , valida el tipo del param con respecto al objeto que se declara en la parte dercha, en este caso el objeto tipo persona.
+        console.log("Es tipo Persona");
+    }else{
+        console.log("no es tipo Persona");
+    }
+}
+function Persona(){
+    this.nombre = "Esteban";
+    this.edad = 22;
+}
+
+var juan = new Persona();
+
+identifica(juan);
