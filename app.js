@@ -158,7 +158,7 @@ console.log(
         console.log("Funcion anonima");
         return 1;
     })
-);*/
+);
 
 //------FUNCIONES typeof AND instanceof
 //-------------------------------------1 EJEMPLO--------------------
@@ -191,4 +191,45 @@ function Persona(){
 
 var juan = new Persona();
 
-identifica(juan);
+identifica(juan);*/
+
+//-----------ARREGLOS---------
+var arr = [1,2,3,4,5];
+console.log(arr);
+console.log(arr[0],arr[2],arr[4]);
+
+arr.reverse();
+console.log(arr);
+
+arr = arr.map(function(elem){ //La funcion map permite aplicarle una funcionalidad a cada elemento del array
+    elem *= elem;
+    return elem;
+}); 
+console.log(arr);
+
+arr = arr.map( Math.sqrt ); //A cada valor del arreglo se le aplicara raiz cuadrada.
+console.log( arr );
+
+arr = arr.join("|"); //Para indicar por que caracter se desea separar cada elemento, en este caso quedaria: [1|2|3..]
+console.log( arr );
+
+arr = arr.split("|"); //Para separar los elementos del array cada vez que encuentre el elemento "|"
+console.log( arr );
+
+//Agregar elementos al array= push: despues de los elementos, y unshift: al inicio de los elementos.
+arr.push("6");
+console.log( arr );
+
+arr.unshift("0");
+console.log( arr );
+
+console.log( arr.toString() ); //Poner la representacion textual del arreglo.   
+
+var elimine = arr.pop(); //Agarra el ultimo elemento y lo elimina
+console.log( arr, elimine );
+
+arr.splice( 1, 1, "10" ); // el primer parametro indica desde donde empieza a cortar, el segundo parametro indica cuantos elementos quiero cortar apartir del inicio
+// y los otros parametros entre comillas significan los numero que anexare despues de la posicion indicada en los dos primeros parametros
+console.log( arr );
+
+arr.slice( 0,2 ); //sirve para cortar el array,primer parametro indica la posicion de inicio y el segundo parametro, indica hasta que posicion deseo cortar del array.
