@@ -191,7 +191,7 @@ function Persona(){
 
 var juan = new Persona();
 
-identifica(juan);*/
+identifica(juan);
 
 //-----------ARREGLOS---------
 var arr = [1,2,3,4,5];
@@ -233,3 +233,60 @@ arr.splice( 1, 1, "10" ); // el primer parametro indica desde donde empieza a co
 console.log( arr );
 
 arr.slice( 0,2 ); //sirve para cortar el array,primer parametro indica la posicion de inicio y el segundo parametro, indica hasta que posicion deseo cortar del array.
+
+//-------------ARGUMENTOS-------------
+
+var arguments = 10;
+
+function miFuncion(a,b,c,d){
+    console.log(arguments); //Va imprimir lo que se envie por parametro en la invocacion, pero no necesita ni de los parametros que se definen en el metodo.
+}
+
+miFuncion(10,20,30,40); 
+
+//Cuando imprime NaN quiere decir que no es tipo numerico, por ejemplo una variable con el valor undefined, y se va sumir con un entero, saca error debido a eso.
+
+//-------SOBRECARGA DE OPERADORES-------- 
+function crearProducto(nombre, precio){
+    nombre = nombre || "sin nombre";
+    precio = precio || 0;
+
+    console.log("Producto: ", nombre, "Precio: ", precio);
+}
+
+function crearProducto100(nombre){
+    crearProducto(nombre, 100);
+}
+
+function crearProductoCamisa(precio){
+    crearProducto("Camisa" ,  precio);
+}
+crearProducto("Lapiz");
+crearProducto100("corrector");
+crearProductoCamisa(50);*/
+
+//-----------FUNCIONES Y SU CONTEXTO--------
+
+function crearFunciones(){
+
+    var arr = [];
+    var numero = 1;
+
+    for (var numero = 1; numero <= 3; numero++){
+        arr.push(
+            (function(numero){
+            
+                return function(){
+                    console.log(numero);
+                }
+            })(numero)
+        );
+    }
+
+   return arr;
+}
+
+var funciones = crearFunciones();
+funciones[0]();
+funciones[1]();
+funciones[2]();

@@ -36,3 +36,6 @@ Persona.prototype.imprimirInfo = function(){
     console.log(this.nombre + " " + this.apellido + " (" + this.edad + ")" )
 }
 
+-En javascript no se puede hacer la sobrecarga de funciones, pero hay un concepto que es muy parecido a esta funcionalidad llamada 
+sobrecarga de operadores en el cual dentro de una funcion se puede recibir n parametros y llamar la funcion principal que tiene 
+el codigo a ejecutar.
