@@ -40,7 +40,7 @@ a.direccion = {
     } 
 }
 
-//METODOS:
+//---------------METODOS Y OBJETO THIS----------:
 var persona = {
     nombre: "Juan",
     apellido: "Lopez",
@@ -84,7 +84,7 @@ persona.imprimirNombre();
 persona.direccion.obtenerPais();
 persona.padre.obtenerFelicitaciones();
 
-//-------------La palabra reservada new.
+//-------------LA PALABRA RESERVADA: new.
 
 function Persona(nombre, apellido, ciudad){
     this.nombre = nombre;
@@ -131,7 +131,7 @@ var juan = new Persona();
 
 console.log(juan);
 
-//--------FUNCIONES ANONIMAS
+//--------FUNCIONES ANONIMAS ---------------
 //1
 ( function(){
     var a = 10;
@@ -263,7 +263,7 @@ function crearProductoCamisa(precio){
 }
 crearProducto("Lapiz");
 crearProducto100("corrector");
-crearProductoCamisa(50);*/
+crearProductoCamisa(50);
 
 //-----------FUNCIONES Y SU CONTEXTO--------
 
@@ -289,4 +289,127 @@ function crearFunciones(){
 var funciones = crearFunciones();
 funciones[0]();
 funciones[1]();
-funciones[2]();
+funciones[2](); 
+
+//------------OBJETO NUMERO--------
+var a = 10.5478878;
+a.toFixed(2); // el parametro hace referencia a la cantidad de decimales que retornara 
+console.log( a ); // 10.54
+
+a = 10.5478878;
+a.toPrecision(4); //el parametro hace referencia  ala cantidad de decimales que desapareceran
+console.log( a ); // 10.547
+*
+//------------OBJETO BOOLEANO--------
+var a = new Boolean();
+console.log ( a ); // Valor por defecto: False  
+
+var a = new Boolean("8"); //se puede cualquier parametro como cadena y siempre retornara true: "sdsdsd","7","true"
+console.log ( a ); //Retornara un true debido a que es un string
+
+var a = new Boolean(1); // 1 : true ; 0 : false
+console.log ( a ); // Numerico, retornara un true or false dependiendo su valor
+
+//-----------------OBJETO STRING------------
+
+var a = new String("esteban lopez");
+console.log(a);
+
+console.log(a.toUpperCase);
+console.log(a.toLowerCase);
+
+var i = a.indexOf("e"); //Retorna la posicion donde se encuentra esa letra
+console.log("la letra: " + i);
+
+var i = a.lastIndexOf("n"); //Retorna la posicion de la ultima posicion que vio esa latra situada en esa posicion.
+console.log("la letra: " + i);
+
+var nombre = a.substring(2);
+console.log(nombre); //teban
+
+nombre = a.substring(2,4); //Primer parametro indica desde donde empieza a acotar y el segundo indica donde termina
+console.log(nombre); //te
+
+nombre = a.substr(2,3); //Primer parametro indica desde donde empieza a acotar y el segundo indica cuantos caracteres coge apartir de ahi
+console.log(nombre); //teb
+
+//Si deseo capturar solo la primera palabra, en este caso "esteban", se tendria que hacer con un indexOf donde se indique
+//que empiece desde 0 (osea el inicio), hasta que encuentre un espacio indexxOf(" ")
+
+nombre = a.substr(0, a.indexOf(" "));
+console.log(nombre); //esteban
+
+var split = a.split(" "); //.split() separa palabras por algn caracter que se indique, en este caso por espacio 
+console.log(split); // ["esteban","lopez"] 
+
+//--------OBJETO DATE----------
+//Tres maneras de inicializar fechas en javascript
+var hoy = new Date();
+var fMili = new Date(1);
+var fFija = new Date(anio, mes, dia, hora, min, seg, mili);
+
+console.log(hoy.getFullYear()); //Obtiene la fecha
+console.log(hoy.getDate()); //Retorna el dia
+console.log(hoy.getHours()); //Retorna las horas
+console.log(hoy.getMilliseconds()); //Retorna los milisegundos de la hora
+console.log(hoy.getMonth()); //Retorna el mes en base 0; es decir: enero:0,febrero:1,marzo:2,abril:3...
+console.log(hoy.getSeconds()); //Retorna los segundos de la hora
+console.log(hoy.getTime()); //Retorna la representacion numerica de una fecha en milisegundos
+
+//---------OPERACIONES CON FECHAS---------
+var fecha = new Date(2019/8/16);
+
+console.log( fecha );
+
+//Para sumar dias
+fecha.setDate( 20 ); //Hay setHousers,setYears.....
+
+//Modificacion al prototipo:
+Date.prototype.sumarDias = function( dias ){
+    this.setDate( this.getDate() + dias );
+    return this;
+}
+
+Date.prototype.sumarAnios = function( anios ){
+    this.setUTCFullYear( this.getFullYear() + anios );
+    return this;
+}
+
+console.log( fecha );
+console.log (fecha.sumarDias(4));
+console.log (fecha.sumarAnios(2));
+
+//--------OBJETO MATH-------
+var PI = Math.PI;
+var E = Math.E;
+
+var num1 = 10.456789;
+console.log(num1);
+console.log("Redondear: " + Math.round(num1)); //Para redondear los numeros
+console.log("Obtener numero entero: " + Math.floor(num1)); //Para obtener el numero entero  de un decimal sin redondeo
+
+function randomEntre( min, max ){
+    return Math.floor( Math.random() * (max-min + 1) + min);
+}
+
+console.log(randomEntre(1,6));
+console.log("Raiz cuadrada: " + Math.sqrt(10));
+console.log("Elevar al Exponente: " + Math.pow(7,2));
+*/
+//-----------EXPRESIONES REGULARES---------
+var reg1 = RegExp("a");
+var reg2 = /a/;
+var texto = "Hola Mundo";
+
+    var arr = texto.match( reg1 ); //regresara un arreglo si en el texto encuentra la palabra definida como la expresion rgular, sino, regresara Null 
+console.log( arr );
+
+arr = texto.match( /^.o/ ); //Traera cualquiera dos letras siempre y cuando su proxima la segunda de ellas, sea una 'o'.
+console.log( arr );
+arr = texto.match( /[a-z]/ ); //Para encontrar rangos, esto es key sensitive, asi que solo encontrara letras de la a a la z pero en minuscula 
+//Ej1: /[a-zA-Z]/ (cuando encuentre cualquier letra), 
+//Ej2: /[0-9]/ (cuando encuentre un rango de numeros desde el 0 al 9), 
+//Ej3: /[0189]/ (cuando se desea buscar numeros especificos),
+//Ej4: /^H[aeiou]/ (la h y que le siga cualquier bocal),
+//Ej5: /[\s]/ (Busca cualquier separacion)
+//Ej5: /[\w]/ (Busca cualquier caracter, es equivalente a tener /[a-zA-Z0-9]/)
