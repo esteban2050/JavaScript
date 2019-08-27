@@ -395,7 +395,7 @@ function randomEntre( min, max ){
 console.log(randomEntre(1,6));
 console.log("Raiz cuadrada: " + Math.sqrt(10));
 console.log("Elevar al Exponente: " + Math.pow(7,2));
-*/
+
 //-----------EXPRESIONES REGULARES---------
 var reg1 = RegExp("a");
 var reg2 = /a/;
@@ -413,3 +413,73 @@ arr = texto.match( /[a-z]/ ); //Para encontrar rangos, esto es key sensitive, as
 //Ej4: /^H[aeiou]/ (la h y que le siga cualquier bocal),
 //Ej5: /[\s]/ (Busca cualquier separacion)
 //Ej5: /[\w]/ (Busca cualquier caracter, es equivalente a tener /[a-zA-Z0-9]/)
+
+//---------------------COMENTARIOS EN JAVASCRIPT Y ESPACIADO.----------
+var arr = ["esteban", {
+    nombre : "juan",
+    apellido : "lopez",
+    getNombre(){
+        return this.nombre + " " + this.apellido
+    }},true, function(){
+        console.log(this);
+    }];
+//En esta sesion se explica la forma de hacer comentarios, los cuales se pueden hacer de dos formas: comentarios en linea o multilinea; cuando se desea subir el codigo de forma que 
+//se desea que sea publico para los demas, se puede realizar una compresion de codigo con algunos programas. Alguno de ellos puede ser: https://htmlcompressor.com/compressor/
+
+//---------------------------MANEJO DE ERRORES------------------------
+    //Ejemplo 1 : validaciones donde se manda diferentes errores dependiendo la condicion
+try{
+    var a = 100;
+
+        if (a == 100){
+            throw 'que mal';
+        }else{
+            throw 'oh oh!';
+        }
+        console.log("El valor de a es: " + a );
+}   catch(e){
+        if(e == "que mal" ){
+            console.log("Error tipo 1");
+        }if(e == "oh oh!" ){
+            console.log("Error tipo 2");
+        }
+}
+finally{
+    console.log("hola");
+}
+
+    //Ejemplo 2 : mandando el error como nueva instancia
+try {
+    
+    throw new Error('Error tipo 1');
+    console.log("Esta parte nunca se ejecuta");
+} catch (e) {
+    console.log("Parte del catch " + e);
+}
+    //Ejemplo 3 : Enviando el error como tipo objeto
+try {
+    
+    throw {
+        nombreError: "Error tipo 1",
+        accion: "Salir corriendo a echarle agua al servidor",
+        codeError:1
+    }
+} catch (e) {
+    console.log(e);
+    console.log(e.nombreError);
+    console.log(e.accion);
+    console.log(e.codeError);
+}
+    
+    //Ejemplo 4 : Enviando el error como una funcion
+try {
+    
+    throw function(){
+        console.log("Funcion del throw....");
+    }
+} catch (e) {
+
+    e(); //Invocacion del metodo error.
+}
+*/
+//

@@ -45,3 +45,6 @@ el codigo a ejecutar.
 -Para declarar bolleanos es preferible declararlos directamente, es decir: var a = false // var a = true ; y no es muy conveniente
 declarar por medio de una instancia debido a que puede tener mas inconvenientes, ejemplo:
 var a = new Boolean();
+
+-los ';' sirven para indicarle a javascrip que ahi termina la linea de codigo. Si no se pone el punto y coma, simplemente va ler la linea de codigo hasta
+que ya no encuentre nada debido a un salto de linea.
