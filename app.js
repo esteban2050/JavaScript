@@ -482,4 +482,35 @@ try {
     e(); //Invocacion del metodo error.
 }
 */
-//
+//------FUNCIONES ESPECIALES: call(),Apply(), Bind()----------
+
+var carro = {
+    color: "Blanco",
+    marca: "Mazda",
+    imprimir: function(){
+        var salida = this.marca + " - " + this.color;
+        return salida;
+    }
+}
+
+var carro2 = {
+    color: "Rojo",
+    marca: "Toyota",    
+}
+
+console.log( carro.imprimir() );
+
+var logCarro = function( arg1, arg2){
+    console.log("Carro: " + this.imprimir()); // Con los metodos bind,call se puede acceder a este this aunque no este dentro del mismo contexto
+    console.log("Agumentos: ", arg1,arg2)
+    console.log("==================")
+}
+
+var logModeloCarro = logCarro.bind( carro ); //bind sirve para establecer el objeto y poder apuntar el this a ese objeto
+logModeloCarro("abc","xyz");
+
+logModeloCarro.call( carro,"123","456" );//el primer parametro es a lo que queremos que apunte el this y seguido los parametros que recibe el metodo
+logModeloCarro.apply( carro,["123","456"] );//este metodo solo espera dos parametros: el primer parametro es a lo que queremos que apunte el this y seguido es un arreglo que puede contener x de parametros dentro
+
+//la funcionalidad de estos tres metodos es para funciones prestadas, ejemplo:
+console.log(carro.imprimir().call(carro2));

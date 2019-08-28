@@ -48,3 +48,9 @@ var a = new Boolean();
 
 -los ';' sirven para indicarle a javascrip que ahi termina la linea de codigo. Si no se pone el punto y coma, simplemente va ler la linea de codigo hasta
 que ya no encuentre nada debido a un salto de linea.
+
+-Las cookies solo se crean si se esta corriendo en un servidor; para implementar el ejercicio, se descarga node.js, luego por consola, se instala el comando :
+npm install http-server -g
+Nota: si sale un error err_invalid_redirect. , ejecutarse por consola:  npm install -g http-server@0.9.0
+Luego, para pder ejecutar el codigo en el servidor, se coloca el siguiente comando: http-server rutaArchivosDelProyecto -pxxxx 
+Donde xxx, hace referencia al numero del puerto
