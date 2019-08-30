@@ -481,7 +481,7 @@ try {
 
     e(); //Invocacion del metodo error.
 }
-*/
+
 //------FUNCIONES ESPECIALES: call(),Apply(), Bind()----------
 
 var carro = {
@@ -514,3 +514,21 @@ logModeloCarro.apply( carro,["123","456"] );//este metodo solo espera dos parame
 
 //la funcionalidad de estos tres metodos es para funciones prestadas, ejemplo:
 console.log(carro.imprimir().call(carro2));
+*/
+//--------------- JSON--------------
+
+var objetoJs = {
+    nombre: "Esteban",
+    edad: 22
+};
+
+console.log("Objeto literal ", objetoJs);
+
+var jsonString = JSON.stringify(objetoJs);
+console.log(jsonString);
+
+var objetoDesdeJson = JSON.parse(jsonString);
+console.log(objetoDesdeJson);
+
+console.log(objetoDesdeJson.nombre);
+console.log(objetoDesdeJson.edad);
