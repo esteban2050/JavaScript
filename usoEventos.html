@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript</title>
+
+        <style type="text/css">
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- MALA PRACTICA PONER TODOS LOS EVENTOS EN EL HTML COMO SE HACE EN ESTA FORMA -->
+        <!-- ejemplo con un click -->
+        <button onclick="evento()">Soy un boton</button>
+        <br>
+        <!-- ejemplo con doble click -->
+        <button ondblclick="evento()">Soy un boton</button>
+        <br>
+        <!-- ejemplo con un div -->
+        <div onclick="evento()">
+        </div>
+        <br>
+        <!-- ejemplo cuando estoy parado haciendo focus en el elemento-->
+        <input type="text" onfocus="evento()">
+        <br>
+        <!-- ejemplo cuando me paro en el elemento y luego doy click por fuera-->
+        <input type="text" onblur="evento()">
+        <br>
+        <!-- ejemplo cuando me salgo fuera del elmento con el mouse-->
+        <input type="text" onmouseout="evento()">
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <br>
+        <!-- FORMA CORRECTA -->
+        <input type="text" id="objDemo">
+        <br>
+        <button id="boton">boton</button>
+
+        <script src="eventos.js"></script>
+    </body>
+</html>

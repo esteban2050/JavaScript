@@ -514,7 +514,7 @@ logModeloCarro.apply( carro,["123","456"] );//este metodo solo espera dos parame
 
 //la funcionalidad de estos tres metodos es para funciones prestadas, ejemplo:
 console.log(carro.imprimir().call(carro2));
-*/
+
 //--------------- JSON--------------
 
 var objetoJs = {
@@ -532,3 +532,66 @@ console.log(objetoDesdeJson);
 
 console.log(objetoDesdeJson.nombre);
 console.log(objetoDesdeJson.edad);
+*/
+//-----------FOR IN, CONTINUE Y FOREACH-----------
+
+var Persona = function(){
+    this.nombre = "Esteban";
+    this.apellido = "Lopez";
+    this.edad = 22;
+};
+
+var juan = new Persona();
+
+Persona.prototype.direccion = "Colombia";
+
+for (prop in juan) {
+    if (!juan.hasOwnProperty(prop))  //esta evaluando si no pertenece a las propiedades que estan definidas dentro del objeto como se estan definiendo en los renglones de arriba; en caso tal, omitalo (continue)
+        continue;
+
+        console.log(prop, ":", juan[prop]);            
+}
+
+for(num in [1,2,3,4,5] ){
+    console.log(num); //lo que hace es imprimir las posiciones en ese arreglo
+}
+
+//pero si se quiere imprimir lo que contiene el arreglo, es mejor usar el for each 
+
+[1,2,true,4,5,"posicion7"].forEach(function(val){
+    console.log(val); //imprime todo los valores que contiene el arreglo, sin importar el tipo
+});
+
+//-----------MANEJO DE TIEMPOS--------
+
+//ejemplo 1:
+    setTimeout (function (){
+        console.log("paso un segundo");
+    }, 1000 );
+
+//ejemplo 2: cada segundo se va ejecutar el console.log donde imprime el segundo y evalua hasta que haya hecho 3 iteraciones para limpiarlo y asi poder pararlo
+
+var segundos = 0;
+var intervalo = setInterval(function(){
+    segundos ++;
+    console.log( "seg",segundos );
+
+    if (segundos === 3) {
+        clearInterval(intervalo);
+    }
+},1000) 
+
+//ejemplo 3: 
+
+var juan = {
+    nombre:"Esteban",
+    edad:22,
+    imprimir: function(){
+        var self = this; // se hace esto para hacer un puente y poder acceder a las variables del objeto dentro del metodo setTimeout(), ya que si ponemos this, hace referencia a window que es el objeto global.
+        setTimeout(function(){
+            console.log( self.nombre, self.edad);
+        },1000);
+    }
+};
+
+juan.imprimir();
