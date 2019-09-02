@@ -61,3 +61,26 @@ Forma incorrecta :
 
 Forma correcta :  
       var nombre = "Esteban";        
+
+Es preferible si se va usar el "use strict" , que se haga de forma encapsulada; y no ponerlo en la parte inicial del archivo. Por que puede presentar problema con librerias de terceros
+o con otros archivos. De la forma correcta que se debe hacer es la siguiente:
+
+(function(){
+    "use strict"
+
+    function imprimir(){
+        .
+        .
+        .
+        .
+        .
+    }
+
+    .
+    .
+    .
+    .
+    .
+})();
+
+Asi aseguramos que la regla solo se aplique en el archivo actual.
