@@ -54,3 +54,10 @@ npm install http-server -g
 Nota: si sale un error err_invalid_redirect. , ejecutarse por consola:  npm install -g http-server@0.9.0
 Luego, para pder ejecutar el codigo en el servidor, se coloca el siguiente comando: http-server rutaArchivosDelProyecto -pxxxx 
 Donde xxx, hace referencia al numero del puerto
+
+-"use strict" : se pone al inicio del archivo .js ; y sirve para que JS sea mas estricto en el codigo, por ejemplo a la hora de definir variables, se debe indicar el tipo; es decir:
+Forma incorrecta :  
+        nombre = "Esteban";
+
+Forma correcta :  
+      var nombre = "Esteban";        

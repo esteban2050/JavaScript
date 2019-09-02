@@ -26,3 +26,25 @@ console.log(objeto);
 
 objetoBoton.addEventListener("click",botonPosiciones)
 console.log(objetoBoton);
+
+
+//--------Evento On submit-------
+//No es viable crear este metodo, debio a que ya hay librerias que hacen este tipo de validaciones.
+function validar() {
+    var nombre = document.getElementById("txtNombre").value;
+    var apellido = document.getElementById("txtApellido").value;
+
+    if(nombre.length < 1){
+        return false; 
+    }
+
+    if(apellido.length < 1){
+        return false; 
+    }
+
+    return true;
+}
+
+//Para obtener los parametros de la URL
+
+console.log(window.location.search);

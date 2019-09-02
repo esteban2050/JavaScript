@@ -3,10 +3,30 @@
     <head>
         <meta charset="UTF-8">
         <title>JavaScript</title>
-    </head>
-    <body>
+        <style type="text/css">
+            html, body{
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+    </head>     
+    <!-- BLOQUEO CLICK DERECHO -->
+    <body oncontextmenu="return false">
+        <!-- oncontextmenu="return false": bloquea el click derecho en la pagina -->
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus rem, a, quae facilis dolor minus ipsam,
+        dolore repudiandae illo totam tempora! Quibusdam nemo fuga provident, 
+        placeat repellendus voluptates? Excepturi, autem?
 
-    <script src="app.js"></script>
+    <!-- EVENTO ON SUBMIT Y PARAMETROS URL -->
+    <form action="" onsubmit="return validar();">
+        <input type="text" name="txtNombre" id="txtNombre">
+
+        <input type="text" name="txtApellido" id="txtApellido">
+        
+        <button type="submit">Postear data</button>
+    </form>
+
+    <script src="bloqueoClick.js"></script>
 
     </body>
 </html>
