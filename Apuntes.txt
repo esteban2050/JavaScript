@@ -1,4 +1,24 @@
 JavaScript:
+-A la hora de declarar una variable y se desea diferenciar entre los ambitos, se deben definir con let, es decir:
+
+var mensaje = "hola";
+
+if(true){
+	var mensaje = "chao";
+}
+
+console.log(mensaje); //Arroja chao
+
+//pero si yo quiero obtener el mensaje inicial y dejar que la variable declarada dentro del if se quede dentro de ese ambito y no influya en la variable externa, se debe declarar asi:
+
+let mensaje = "hola";
+
+if(true){
+	let mensaje = "chao";
+}
+
+console.log(mensaje); //Arroja hola
+
 -Se puede acceder a todos los valores mediante la consola de google, escribiendo la palabra reservada window.
 
 -Se pueden imprimir diferentes tipos de mensaje en la consola mediante los diferentes tipos de metodos que hay; ejemplo
